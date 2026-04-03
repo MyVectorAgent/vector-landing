@@ -1,35 +1,40 @@
 # Vector — static landing (GitHub Pages)
 
-**GitHub Pages serves only static files** (HTML, CSS, JS, images). There is no Node or npm on the server.
+**GitHub Pages has no Node.js.** Serving the site only requires static files (HTML, JS, images). **`node_modules` is never needed** for hosting or for previewing the built site—only run `npm install` inside `source/` when you want to **rebuild** the static output.
 
-## What to deploy
+## What actually gets deployed
 
-The **deployable site** is everything in this folder **except** `source/`:
+These paths at the **`VECTOR_LANDING/` root** are the full site:
 
 | Path | Purpose |
 |------|--------|
 | `index.html` | Entry |
-| `assets/` | Single IIFE bundle (`index.js`); Tailwind/CSS is injected at runtime from JS |
-| `vector-logo.png` | Favicon (from `source/public/`) |
-| `.nojekyll` | Tells GitHub Pages not to run Jekyll on the build |
+| `assets/` | Bundled JS and images referenced by the app |
+| `vector-logo.png` | Favicon (also duplicated under `assets/` as needed) |
+| `.nojekyll` | Disables Jekyll on GitHub Pages |
 
-Push that tree to any static host or point GitHub Pages at a branch/folder that contains these files.
+Everything else here is optional for deployment:
 
-### Why double‑clicking `index.html` used to show a blank page
+- **`source/`** — Vite + React project used only to regenerate the files above. It is **not** served by GitHub Pages. Do not copy `source/` into a minimal Pages-only repo unless you want to keep rebuild tooling there.
 
-Vite’s default build uses `<script type="module">`. **Browsers block or ignore ES modules for `file://` URLs**, so nothing ran. The build uses an **IIFE** bundle and the publish step rewrites the tag to `<script defer src="./assets/index.js">` so opening the file from disk works. **GitHub Pages** serves over `https://`, where modules would work too — the classic script is fine either way.
+- **`source/node_modules/`** and **`source/site/`** — Created by `npm install` / `npm run build`. They are gitignored and should not be committed; they are not part of the static site.
 
-If anything still fails locally, serve the folder over HTTP: `cd VECTOR_LANDING && npx --yes serve .` (or `python3 -m http.server 8080`).
+## Preview the static site (no npm required)
 
-**GitHub Pages branch settings** only allow publishing from the repository **root** or the **`/docs`** folder on `main` (or `gh-pages` branch). This repo keeps the static site under `VECTOR_LANDING/`. Typical options:
+From this folder, serve over HTTP (matches how Pages behaves better than `file://` alone):
 
-1. **Dedicated repo** — copy only the static files above (not `source/`) into a new repo’s root and enable Pages on that repo.
-2. **`docs/` workflow** — copy those files into `/docs` at the repo root (or symlink/copy in your workflow), if you use the `/docs` Pages source.
-3. **Keep `source/` in git** — it is only for rebuilding; it is not required at runtime.
+```bash
+cd VECTOR_LANDING
+npx --yes serve .
+```
 
-## Rebuild from source (optional)
+Or: `python3 -m http.server 8080` then open `http://localhost:8080`.
 
-`source/` holds the Vite + React project used to regenerate the static files.
+### Why `file://` used to break
+
+The published `index.html` uses a classic `<script defer src="./assets/index.js">` and an IIFE bundle so the site can work when opened from disk. Raw Vite `type="module"` output does not run from `file://` in most browsers.
+
+## Rebuild from source (developers only)
 
 ```bash
 cd VECTOR_LANDING/source
@@ -37,11 +42,8 @@ npm install
 npm run build
 ```
 
-That runs `tsc`, `vite build`, then copies `source/site/` to the parent `VECTOR_LANDING/` root (`index.html`, `assets/`, etc.). Commit the updated static files if you want Pages to pick them up.
+That writes to `source/site/` briefly, then copies the published files to `VECTOR_LANDING/` (see `source/scripts/publish-static.mjs`). Commit the updated root `index.html` and `assets/` if you want Pages to update.
 
-Local preview of the last build:
+## Repo layout vs GitHub Pages settings
 
-```bash
-cd VECTOR_LANDING/source
-npm run preview
-```
+Pages can publish from the repo **root** or **`/docs`**. This monorepo keeps the static tree under **`VECTOR_LANDING/`**. To use Pages on `main`, either point Pages at this folder (if your host allows subfolder deploy), copy these static files to `/docs` or a dedicated repo root, or use an Action that uploads only the root files above.
