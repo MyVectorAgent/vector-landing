@@ -5,6 +5,9 @@
   --accent: #e878be;
   --font: "Outfit", system-ui, sans-serif;
   --max: 96rem;
+  /* Slightly larger default reading size for landing sections */
+  --section-title: clamp(1.875rem, 3.6vw + 1rem, 3.15rem);
+  --section-body: clamp(1.125rem, 1.1vw + 1rem, 1.375rem);
 }
 
 *,
@@ -46,7 +49,7 @@ body {
   margin-right: auto;
 }
 .max-w-2xl {
-  max-width: 42rem;
+  max-width: 45rem;
 }
 @media (min-width: 640px) {
   .sm\:mt-8 {
@@ -120,7 +123,7 @@ main {
 }
 
 h1 {
-  font-size: clamp(1.35rem, 4.35vw + 0.85rem, 4.1rem);
+  font-size: clamp(1.5rem, 4.5vw + 0.9rem, 4.35rem);
   font-weight: 700;
   line-height: 1.03;
   letter-spacing: -0.02em;
@@ -128,7 +131,7 @@ h1 {
 }
 
 h2 {
-  font-size: clamp(1.65rem, 3.2vw + 0.9rem, 2.75rem);
+  font-size: var(--section-title);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.02em;
@@ -136,13 +139,13 @@ h2 {
 }
 
 .sub {
-  font-size: 1.125rem;
-  line-height: 1.625;
+  font-size: var(--section-body);
+  line-height: 1.65;
   color: var(--muted);
 }
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .sub {
-    font-size: 1.25rem;
+    font-size: clamp(1.1875rem, 1vw + 1.05rem, 1.4375rem);
   }
 }
 .text-center {
@@ -165,7 +168,7 @@ h2 {
   padding: 0 24px;
 }
 .hero-lead {
-  max-width: 640px;
+  max-width: 1100px;
   text-align: left;
 }
 .hero-sub-row {
@@ -208,19 +211,25 @@ h2 {
   line-height: 1.05;
   color: #0f172a;
   margin: 0 0 16px;
+  max-width: 640px;
 }
 .hero h1 .block + .block {
   margin-top: 0.06em;
 }
 .wrap.hero .hero-sub.sub {
-  font-size: 18px;
+  font-size: 1.25rem;
   line-height: 1.55;
   color: #6b7280;
   margin: 0;
-  max-width: 640px;
+  max-width: none;
   flex: 1 1 auto;
   min-width: 0;
   text-align: left;
+}
+@media (min-width: 640px) {
+  .wrap.hero .hero-sub.sub {
+    font-size: 1.375rem;
+  }
 }
 .wrap.hero .hero-sub.sub span {
   font-weight: 700;
@@ -235,7 +244,7 @@ h2 {
   border: 1px solid rgba(228, 228, 231, 0.9);
   background: rgba(255, 255, 255, 0.75);
   padding: 1rem 2.25rem;
-  font-size: 1rem;
+  font-size: 1.0625rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
@@ -251,7 +260,7 @@ h2 {
 .btn-pill--hero {
   margin-top: 0;
   padding: 12px 24px;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   border: none;
   background: #0f172a;
   color: #fff;
@@ -342,7 +351,7 @@ h2 {
   padding-bottom: 1rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid rgba(244, 244, 245, 0.95);
-  font-size: 12px;
+  font-size: 0.875rem;
 }
 .chat-head strong {
   font-weight: 600;
@@ -414,14 +423,14 @@ h2 {
   border: 1px solid rgba(228, 228, 231, 0.7);
   background: rgba(250, 250, 250, 0.9);
   padding: 0.625rem 0.875rem;
-  font-size: 0.8125rem;
-  line-height: 1.5;
+  font-size: 0.9375rem;
+  line-height: 1.55;
   color: #27272a;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 @media (min-width: 640px) {
   .bubble {
-    font-size: 0.875rem;
+    font-size: 1.0625rem;
   }
 }
 .bubble + .bubble {
@@ -447,7 +456,7 @@ h2 {
   gap: 0.5rem;
   padding-left: 3.25rem;
   margin-top: 0.25rem;
-  font-size: 0.8125rem;
+  font-size: 0.9375rem;
   font-weight: 500;
   color: #52525b;
   letter-spacing: 0.01em;
@@ -457,7 +466,7 @@ h2 {
 }
 @media (min-width: 640px) {
   .chat-typing {
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
 }
 .chat-thread > .chat-typing:last-child {
@@ -546,7 +555,7 @@ h2 {
   justify-self: start;
 }
 .timeline-compare-title {
-  font-size: clamp(1rem, 0.35vw + 0.9rem, 1.1875rem);
+  font-size: clamp(1.0625rem, 0.45vw + 0.95rem, 1.3125rem);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -651,10 +660,15 @@ h2 {
 }
 .timeline-label {
   display: block;
-  font-size: 15px;
+  font-size: clamp(0.96875rem, 0.35vw + 0.9rem, 1.0625rem);
   font-weight: 600;
   letter-spacing: -0.02em;
   padding-bottom: 0.1rem;
+}
+@media (min-width: 640px) {
+  .timeline-label {
+    font-size: 1.0625rem;
+  }
 }
 .timeline--before .timeline-label {
   color: #52525b;
@@ -764,7 +778,7 @@ h2 {
 }
 #meet-vector .meet-vector__sub {
   margin: 1rem auto 0;
-  max-width: 36rem;
+  max-width: 40rem;
 }
 #meet-vector .avatar-block {
   display: flex;
@@ -775,9 +789,9 @@ h2 {
 }
 #meet-vector .avatar-block img {
   display: block;
-  width: clamp(7.5rem, 22vw, 10rem);
+  width: clamp(8rem, 24vw, 11rem);
   height: auto;
-  max-height: 10rem;
+  max-height: 11rem;
   object-fit: cover;
   border-radius: 1.125rem;
   box-shadow: 0 12px 40px -24px rgba(15, 15, 18, 0.25);
@@ -789,13 +803,13 @@ h2 {
   gap: 0.15rem;
 }
 #meet-vector .identity .name {
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: var(--ink);
   letter-spacing: -0.02em;
 }
 #meet-vector .identity .role {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--muted);
 }
@@ -819,15 +833,20 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 10px 14px;
+  padding: 0.625rem 1rem;
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.04);
-  font-size: 14px;
+  font-size: 0.9375rem;
   font-weight: 500;
-  line-height: 1.35;
+  line-height: 1.4;
   letter-spacing: -0.015em;
   color: var(--ink);
   transition: background 0.15s ease;
+}
+@media (min-width: 640px) {
+  #meet-vector .chip {
+    font-size: 1rem;
+  }
 }
 #meet-vector .chip::before {
   content: "";
@@ -868,14 +887,14 @@ h2 {
   line-height: 0;
 }
 .sys-viz__logo {
-  width: 1.375rem;
-  height: 1.375rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: block;
 }
 @media (min-width: 640px) {
   .sys-viz__logo {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.625rem;
+    height: 1.625rem;
   }
 }
 .sys-viz__vline {
@@ -936,11 +955,11 @@ h2 {
 .sys-viz__pill {
   display: block;
   text-align: center;
-  font-size: clamp(0.75rem, 1.5vw, 0.8125rem);
+  font-size: clamp(0.8125rem, 1.2vw + 0.65rem, 0.9375rem);
   font-weight: 500;
   line-height: 1.38;
   letter-spacing: -0.015em;
-  padding: 0.42rem 0.6rem;
+  padding: 0.5rem 0.65rem;
   border-radius: 8px;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: none;
@@ -990,7 +1009,7 @@ h2 {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 .sys-viz__hub-label {
-  font-size: clamp(0.625rem, 1.5vw, 0.72rem);
+  font-size: clamp(0.6875rem, 1.2vw + 0.55rem, 0.8125rem);
   font-weight: 700;
   letter-spacing: 0.16em;
   text-indent: 0.16em;
@@ -1037,19 +1056,24 @@ h2 {
 }
 .empower-card h3 {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1.35;
 }
 @media (min-width: 640px) {
   .empower-card h3 {
-    font-size: 1rem;
+    font-size: 1.125rem;
   }
 }
 .empower-card p {
   margin: 0.5rem 0 0;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: var(--muted);
+}
+@media (min-width: 640px) {
+  .empower-card p {
+    font-size: 1rem;
+  }
 }
 .empowers-expanded {
   display: none;
@@ -1091,19 +1115,24 @@ h2 {
 .empower-detail h3 {
   margin: 0;
   padding-right: 4rem;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
 }
 .empower-detail .sub {
   margin-top: 0.25rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
 }
 .empower-detail .body {
   margin-top: 0.75rem;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: 0.9375rem;
+  line-height: 1.65;
   color: #3f3f46;
+}
+@media (min-width: 640px) {
+  .empower-detail .body {
+    font-size: 1rem;
+  }
 }
 .proof {
   margin-top: 1rem;
@@ -1112,7 +1141,7 @@ h2 {
   border: 1px solid rgba(228, 228, 231, 0.8);
   background: rgba(250, 250, 250, 0.8);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
 }
 .proof--slack {
   border-radius: 1rem;
@@ -1168,12 +1197,12 @@ h2 {
 }
 .empower-compact h4 {
   margin: 0;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 700;
 }
 .empower-compact p {
   margin: 0.25rem 0 0;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: var(--muted);
 }
 
@@ -1189,7 +1218,7 @@ h2 {
 }
 .marquee-wrap .eyebrow {
   text-align: center;
-  font-size: 11px;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1229,14 +1258,14 @@ h2 {
   flex-shrink: 0;
   max-width: 36rem;
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 500;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #3f3f46;
 }
 @media (min-width: 640px) {
   .marquee-track p {
-    font-size: 1rem;
+    font-size: 1.0625rem;
   }
 }
 @keyframes marquee {
@@ -1270,12 +1299,12 @@ h2 {
   display: flex;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 @media (min-width: 640px) {
   .cta-card li {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
   }
 }
 .cta-num {
@@ -1304,7 +1333,7 @@ h2 {
   justify-content: center;
   border-radius: 9999px;
   padding: 0.875rem 2rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   background: var(--ink);
   color: #fff;
@@ -1321,7 +1350,7 @@ h2 {
   justify-content: center;
   border-radius: 9999px;
   padding: 0.875rem 2rem;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   background: rgba(255, 255, 255, 0.9);
   color: #27272a;
@@ -1340,7 +1369,7 @@ footer {
 footer p {
   margin: 0;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   color: #a1a1aa;
 }
 @media (min-width: 640px) {
