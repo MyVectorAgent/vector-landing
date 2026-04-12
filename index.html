@@ -22,86 +22,93 @@
 
     <main>
       <div class="wrap hero">
-        <div class="logo-row">
-          <img src="./assets/vector-logo.png" alt="Vector" width="120" height="36" />
-        </div>
-        <div class="hero-grid">
-          <div class="hero-copy">
+        <div class="hero-shell">
+          <div class="hero-lead">
+            <div class="logo-row">
+              <img src="./assets/vector-logo.png" alt="" width="120" height="36" />
+              <span class="logo-wordmark">Vector</span>
+            </div>
             <h1>
               <span class="block">Chase results,</span>
               <span class="block">Not <span class="accent">updates.</span></span>
             </h1>
-            <p class="sub mt-6 sm:mt-8">
+          </div>
+          <div class="hero-sub-row">
+            <p class="sub hero-sub">
               <span>Vector handles execution</span> behind the scenes,
               <span>so you don’t have to.</span>
             </p>
-            <a class="btn-pill" href="#meet-vector-agent">Meet Vector</a>
+            <a class="btn-pill btn-pill--hero" href="#meet-vector-agent">Meet Vector</a>
           </div>
-          <div class="hero-visual">
-            <div class="chat-card">
-              <div class="chat-shell">
-                <div class="chat-head">
-                  <strong># checkout</strong>
-                  <span class="muted">·</span>
-                  <span class="muted">Engineering</span>
-                </div>
-                <div class="chat-thread">
-                  <div class="chat-block chat-row" data-seq="0">
-                    <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
-                    <div class="flex-1">
-                      <div class="bubble-meta">
-                        <span style="font-size: 12px; font-weight: 600">Vector</span>
-                        <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
-                      </div>
-                      <div class="bubble">Hey, quick heads up.</div>
-                    </div>
+        </div>
+        <div class="hero-product">
+          <div class="hero-product__frame">
+            <div class="hero-product__chat-wrap">
+              <div class="chat-card">
+                <div class="chat-shell">
+                  <div class="chat-head">
+                    <strong># checkout</strong>
+                    <span class="muted">·</span>
+                    <span class="muted">Engineering</span>
                   </div>
-                  <div class="chat-block chat-row" data-seq="1">
-                    <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
-                    <div class="flex-1">
-                      <div class="bubble-meta">
-                        <span style="font-size: 12px; font-weight: 600">Vector</span>
-                        <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
-                      </div>
-                      <div class="bubble">
-                        The auth PR is still in review. I’ve aligned with Sam to pick it up this morning 🤓
+                  <div class="chat-thread">
+                    <div class="chat-block chat-row" data-seq="0">
+                      <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
+                      <div class="flex-1">
+                        <div class="bubble-meta">
+                          <span style="font-size: 12px; font-weight: 600">Vector</span>
+                          <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                        </div>
+                        <div class="bubble">Hey, quick heads up.</div>
                       </div>
                     </div>
-                  </div>
-                  <div class="chat-block chat-row--alex" data-seq="2">
-                    <div class="bubble-meta bubble-meta--alex">
-                      <img class="avatar" src="./assets/hero-org-michelle.png" alt="" />
-                      <span style="font-size: 12px; font-weight: 600">Alex</span>
-                      <span style="font-size: 11px; color: #a1a1aa">9:42 AM</span>
-                    </div>
-                    <div class="bubble bubble--alex">Got it. Any risk for checkout?</div>
-                  </div>
-                  <div class="chat-block chat-row" data-seq="3">
-                    <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
-                    <div class="flex-1">
-                      <div class="bubble-meta">
-                        <span style="font-size: 12px; font-weight: 600">Vector</span>
-                        <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                    <div class="chat-block chat-row" data-seq="1">
+                      <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
+                      <div class="flex-1">
+                        <div class="bubble-meta">
+                          <span style="font-size: 12px; font-weight: 600">Vector</span>
+                          <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                        </div>
+                        <div class="bubble">
+                          The auth PR is still in review. I’ve aligned with Sam to pick it up this morning 🤓
+                        </div>
                       </div>
-                      <div class="bubble">All good.</div>
-                      <div class="bubble">
-                        I pushed for a quick review and adjusted scope slightly so checkout can ship today
-                        without delay.
+                    </div>
+                    <div class="chat-block chat-row--alex" data-seq="2">
+                      <div class="bubble-meta bubble-meta--alex">
+                        <img class="avatar" src="./assets/hero-org-michelle.png" alt="" />
+                        <span style="font-size: 12px; font-weight: 600">Alex</span>
+                        <span style="font-size: 11px; color: #a1a1aa">9:42 AM</span>
                       </div>
-                      <div class="bubble">Full version lands tomorrow.</div>
+                      <div class="bubble bubble--alex">Got it. Any risk for checkout?</div>
                     </div>
-                  </div>
-                  <div class="chat-block chat-row--alex" data-seq="4">
-                    <div class="bubble-meta bubble-meta--alex">
-                      <img class="avatar" src="./assets/hero-org-michelle.png" alt="" />
-                      <span style="font-size: 12px; font-weight: 600">Alex</span>
-                      <span style="font-size: 11px; color: #a1a1aa">9:42 AM</span>
+                    <div class="chat-block chat-row" data-seq="3">
+                      <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
+                      <div class="flex-1">
+                        <div class="bubble-meta">
+                          <span style="font-size: 12px; font-weight: 600">Vector</span>
+                          <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                        </div>
+                        <div class="bubble">All good.</div>
+                        <div class="bubble">
+                          I pushed for a quick review and adjusted scope slightly so checkout can ship today
+                          without delay.
+                        </div>
+                        <div class="bubble">Full version lands tomorrow.</div>
+                      </div>
                     </div>
-                    <div class="bubble bubble--alex">Perfect 👍</div>
-                  </div>
-                  <div class="chat-typing" data-seq="5">
-                    <span>Vector is typing</span>
-                    <span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <div class="chat-block chat-row--alex" data-seq="4">
+                      <div class="bubble-meta bubble-meta--alex">
+                        <img class="avatar" src="./assets/hero-org-michelle.png" alt="" />
+                        <span style="font-size: 12px; font-weight: 600">Alex</span>
+                        <span style="font-size: 11px; color: #a1a1aa">9:42 AM</span>
+                      </div>
+                      <div class="bubble bubble--alex">Perfect 👍</div>
+                    </div>
+                    <div class="chat-typing" data-seq="5">
+                      <span>Vector is typing</span>
+                      <span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -117,7 +124,7 @@
           </header>
           <div class="timeline-compare">
             <div class="timeline-side timeline-side--before">
-              <p class="timeline-compare-title timeline-compare-title--before" id="timeline-before-title">Before</p>
+              <p class="timeline-compare-title timeline-compare-title--before" id="timeline-before-title">Without Vector</p>
               <ol class="timeline timeline--before" id="timeline-before" aria-labelledby="timeline-before-title">
                 <li>
                   <div class="timeline-col">
@@ -185,7 +192,7 @@
               <span class="timeline-bridge-label">Vector</span>
             </div>
             <div class="timeline-side timeline-side--after">
-              <p class="timeline-compare-title timeline-compare-title--after" id="timeline-after-title">After</p>
+              <p class="timeline-compare-title timeline-compare-title--after" id="timeline-after-title">With Vector</p>
               <ol class="timeline timeline--after" id="timeline-after" aria-labelledby="timeline-after-title">
                 <li>
                   <div class="timeline-col">
