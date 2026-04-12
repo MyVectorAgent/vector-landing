@@ -2,19 +2,496 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="./vector-logo.png" />
-    <link rel="apple-touch-icon" href="./vector-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vector</title>
+    <link rel="icon" type="image/png" href="./assets/vector-logo.png" />
+    <link rel="apple-touch-icon" href="./assets/vector-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vector</title>
-    <script defer src="./assets/index.js?v=20260409-21"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <div class="page-bg" aria-hidden="true">
+      <div class="page-bg__solid"></div>
+      <div class="page-bg__grid"></div>
+    </div>
+
+    <main>
+      <div class="wrap hero">
+        <div class="logo-row">
+          <img src="./assets/vector-logo.png" alt="Vector" width="120" height="36" />
+        </div>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1>
+              <span class="block">Chase results,</span>
+              <span class="block">Not <span class="accent">updates.</span></span>
+            </h1>
+            <p class="sub mt-6 sm:mt-8">
+              <span>Vector handles execution</span> behind the scenes,
+              <span>so you don’t have to.</span>
+            </p>
+            <a class="btn-pill" href="#meet-vector-agent">Meet Vector</a>
+          </div>
+          <div class="hero-visual">
+            <div class="chat-card">
+              <div class="chat-shell">
+                <div class="chat-head">
+                  <strong># checkout</strong>
+                  <span class="muted">·</span>
+                  <span class="muted">Engineering</span>
+                </div>
+                <div class="chat-thread">
+                  <div class="chat-block chat-row" data-seq="0">
+                    <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
+                    <div class="flex-1">
+                      <div class="bubble-meta">
+                        <span style="font-size: 12px; font-weight: 600">Vector</span>
+                        <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                      </div>
+                      <div class="bubble">Hey, quick heads up.</div>
+                    </div>
+                  </div>
+                  <div class="chat-block chat-row" data-seq="1">
+                    <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
+                    <div class="flex-1">
+                      <div class="bubble-meta">
+                        <span style="font-size: 12px; font-weight: 600">Vector</span>
+                        <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                      </div>
+                      <div class="bubble">
+                        The auth PR is still in review. I’ve aligned with Sam to pick it up this morning 🤓
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-block chat-row--alex" data-seq="2">
+                    <div class="bubble-meta bubble-meta--alex">
+                      <img class="avatar" src="./assets/hero-org-michelle.png" alt="" />
+                      <span style="font-size: 12px; font-weight: 600">Alex</span>
+                      <span style="font-size: 11px; color: #a1a1aa">9:42 AM</span>
+                    </div>
+                    <div class="bubble bubble--alex">Got it. Any risk for checkout?</div>
+                  </div>
+                  <div class="chat-block chat-row" data-seq="3">
+                    <img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />
+                    <div class="flex-1">
+                      <div class="bubble-meta">
+                        <span style="font-size: 12px; font-weight: 600">Vector</span>
+                        <span style="font-size: 11px; color: #a1a1aa">9:41 AM</span>
+                      </div>
+                      <div class="bubble">All good.</div>
+                      <div class="bubble">
+                        I pushed for a quick review and adjusted scope slightly so checkout can ship today
+                        without delay.
+                      </div>
+                      <div class="bubble">Full version lands tomorrow.</div>
+                    </div>
+                  </div>
+                  <div class="chat-block chat-row--alex" data-seq="4">
+                    <div class="bubble-meta bubble-meta--alex">
+                      <img class="avatar" src="./assets/hero-org-michelle.png" alt="" />
+                      <span style="font-size: 12px; font-weight: 600">Alex</span>
+                      <span style="font-size: 11px; color: #a1a1aa">9:42 AM</span>
+                    </div>
+                    <div class="bubble bubble--alex">Perfect 👍</div>
+                  </div>
+                  <div class="chat-typing" data-seq="5">
+                    <span>Vector is typing</span>
+                    <span class="typing-dots" aria-hidden="true"><span></span><span></span><span></span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section section-timeline" id="timeline-section" aria-labelledby="timeline-heading">
+        <div class="section-inner">
+          <header class="timeline-head text-center">
+            <h2 id="timeline-heading">One timeline. Two realities.</h2>
+          </header>
+          <div class="timeline-compare">
+            <div class="timeline-side timeline-side--before">
+              <p class="timeline-compare-title timeline-compare-title--before" id="timeline-before-title">Before</p>
+              <ol class="timeline timeline--before" id="timeline-before" aria-labelledby="timeline-before-title">
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Ping engineer for update</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Wait 3h → no answer</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Check Linear → still “In progress”</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Open PR → no reviewer assigned</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Ask in Slack → partial answer</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Hidden dependency surfaces late</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                  </div>
+                  <span class="timeline-label">Follow up again tomorrow</span>
+                </li>
+              </ol>
+            </div>
+            <div class="timeline-bridge">
+              <svg class="timeline-bridge-arrow" viewBox="0 0 48 24" width="48" height="24" aria-hidden="true" focusable="false">
+                <g class="timeline-bridge-arrow-motion">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4 12h32m0 0-6-6m6 6-6 6"
+                  />
+                </g>
+              </svg>
+              <span class="timeline-bridge-label">Vector</span>
+            </div>
+            <div class="timeline-side timeline-side--after">
+              <p class="timeline-compare-title timeline-compare-title--after" id="timeline-after-title">After</p>
+              <ol class="timeline timeline--after" id="timeline-after" aria-labelledby="timeline-after-title">
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Follow-ups handled automatically</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Reviewers assigned instantly</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Blockers surfaced before they hit</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Dependencies resolved across teams</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Priorities continuously aligned</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot"></span>
+                    <span class="timeline-line" aria-hidden="true"></span>
+                  </div>
+                  <span class="timeline-label">Next steps always clear</span>
+                </li>
+                <li>
+                  <div class="timeline-col">
+                    <span class="timeline-dot timeline-dot--done"></span>
+                  </div>
+                  <span class="timeline-label">✓ Execution stays on track</span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="meet-vector-agent">
+        <div class="section-inner">
+          <header class="text-center">
+            <h2>Meet <span class="accent">Vector</span></h2>
+            <p class="sub mx-auto mt-7 max-w-2xl">
+              <span style="font-weight: 700; color: var(--ink)">No more dashboards.</span>
+              Vector is your new AI teammate who runs execution for you.
+            </p>
+          </header>
+          <div class="meet-orbit meet-orbit--organic" aria-label="Vector capabilities around your workflow">
+            <div class="meet-orbit__stage">
+              <svg class="meet-orbit__rays" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <marker
+                    id="meet-orbit-arrow"
+                    viewBox="0 0 10 10"
+                    refX="9"
+                    refY="5"
+                    markerWidth="4.5"
+                    markerHeight="4.5"
+                    orient="auto"
+                  >
+                    <path d="M0 0 L10 5 L0 10 Z" fill="rgba(82, 82, 91, 0.72)" />
+                  </marker>
+                </defs>
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="2" y2="4" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="10" y2="33" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="2" y2="61" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="50" y2="97" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="98" y2="5" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="89" y2="35" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="98" y2="54" marker-end="url(#meet-orbit-arrow)" />
+                <line class="meet-orbit__ray" x1="50" y1="50" x2="96" y2="96" marker-end="url(#meet-orbit-arrow)" />
+              </svg>
+              <div class="meet-orbit__center">
+                <div class="portrait-wrap">
+                  <div class="portrait-glow" aria-hidden="true"></div>
+                  <img src="./assets/vector-hq.png" alt="Vector, your AI teammate for execution" />
+                  <p class="portrait-caption portrait-caption--brand">Vector</p>
+                  <p class="portrait-caption portrait-caption--muted">Your execution teammate</p>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l1 meet-bubble-shell--depth-far" style="--i: 1">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Run dailies from real signals</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l2 meet-bubble-shell--depth-near" style="--i: 2">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary">Escalate with full context</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l3 meet-bubble-shell--depth-mid" style="--i: 3">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary">Surface hidden dependencies</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l4 meet-bubble-shell--depth-mid meet-bubble-shell--under" style="--i: 4">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Resolve thread conflicts early</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r1 meet-bubble-shell--depth-near" style="--i: 5">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary">Unify Slack, Git, and PM signals</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r2 meet-bubble-shell--depth-mid" style="--i: 6">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary">Detect delivery drift early</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r3 meet-bubble-shell--depth-far" style="--i: 7">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Judge risk from context, not color</div>
+                </div>
+              </div>
+              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r4 meet-bubble-shell--depth-far" style="--i: 8">
+                <div class="meet-bubble-inner">
+                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Answer product questions from real signals</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="stack">
+        <div class="section-inner">
+          <header class="text-center">
+            <h2>Vector understands what’s actually happening</h2>
+            <p class="sub mx-auto mt-7 max-w-2xl">And fixes it before you have to</p>
+          </header>
+          <div class="sys-viz">
+            <div class="sys-viz__layer sys-viz__layer--tools">
+              <span class="sys-viz__tool-logo" role="img" aria-label="Slack">
+                <svg class="sys-viz__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    fill="currentColor"
+                    d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.528 2.528 0 0 1-2.52-2.521V2.522A2.528 2.528 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.528 2.528 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.528 2.528 0 0 1-2.52-2.523 2.528 2.528 0 0 1 2.52-2.52h6.313A2.528 2.528 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"
+                  />
+                </svg>
+              </span>
+              <span class="sys-viz__tool-logo" role="img" aria-label="GitHub">
+                <svg class="sys-viz__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    fill="currentColor"
+                    d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+                  />
+                </svg>
+              </span>
+              <span class="sys-viz__tool-logo" role="img" aria-label="Linear">
+                <svg class="sys-viz__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    fill="currentColor"
+                    d="M2.886 4.18A11.982 11.982 0 0 1 11.99 0C18.624 0 24 5.376 24 12.009c0 3.64-1.62 6.903-4.18 9.105L2.887 4.18ZM1.817 5.626l16.556 16.556c-.524.33-1.075.62-1.65.866L.951 7.277c.247-.575.537-1.126.866-1.65ZM.322 9.163l14.515 14.515c-.71.172-1.443.282-2.195.322L0 11.358a12 12 0 0 1 .322-2.195Zm-.17 4.862 9.823 9.824a12.02 12.02 0 0 1-9.824-9.824Z"
+                  />
+                </svg>
+              </span>
+              <span class="sys-viz__tool-logo" role="img" aria-label="Notion">
+                <svg class="sys-viz__logo" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path
+                    fill="currentColor"
+                    d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233 4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632z"
+                  />
+                </svg>
+              </span>
+            </div>
+            <div class="sys-viz__vline sys-viz__vline--tools" aria-hidden="true"></div>
+            <div class="sys-viz__layer sys-viz__layer--signals">
+              <span class="sys-viz__pill sys-viz__pill--signal">PR open for 2 days</span>
+              <span class="sys-viz__pill sys-viz__pill--signal">“Who owns this?”</span>
+              <span class="sys-viz__pill sys-viz__pill--signal">Waiting on API team</span>
+              <span class="sys-viz__pill sys-viz__pill--signal">Conflicting priorities</span>
+            </div>
+            <div class="sys-viz__vline sys-viz__vline--in" aria-hidden="true"></div>
+            <div class="sys-viz__hub">
+              <div class="sys-viz__hub-ring">
+                <span class="sys-viz__hub-label">Vector</span>
+              </div>
+            </div>
+            <div class="sys-viz__vline sys-viz__vline--out" aria-hidden="true"></div>
+            <div class="sys-viz__layer sys-viz__layer--outputs">
+              <span class="sys-viz__pill sys-viz__pill--out">Reviewer auto-assigned</span>
+              <span class="sys-viz__pill sys-viz__pill--out">Owner identified instantly</span>
+              <span class="sys-viz__pill sys-viz__pill--out">Dependency resolved</span>
+              <span class="sys-viz__pill sys-viz__pill--out">Priority clarified</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="core-features">
+        <div class="section-inner">
+          <header class="text-center">
+            <h2>See how <span class="accent">Vector</span> shows up for you</h2>
+            <p class="sub mx-auto mt-7 max-w-2xl">Confidence in your execution, without chasing updates.</p>
+          </header>
+          <div id="empowers-grid" class="empowers-grid">
+            <button type="button" class="empower-card" data-feature="brief">
+              <h3>Daily execution brief</h3>
+              <p>See what matters, in 30 secs</p>
+            </button>
+            <button type="button" class="empower-card" data-feature="drift">
+              <h3>Execution drift prevention</h3>
+              <p>Fix issues before they become blockers</p>
+            </button>
+            <button type="button" class="empower-card" data-feature="slack">
+              <h3>In-channel teammate</h3>
+              <p>Vector follows up for you</p>
+            </button>
+            <button type="button" class="empower-card" data-feature="escalation">
+              <h3>Smart escalation</h3>
+              <p>You’re only pulled in when it matters</p>
+            </button>
+          </div>
+          <div id="empowers-expanded" class="empowers-expanded">
+            <div class="empower-detail">
+              <div id="empower-detail-content"></div>
+              <div id="empower-compact-row" class="empower-compact-grid"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="cta">
+        <div class="section-inner">
+          <div class="marquee-wrap">
+            <p class="eyebrow">They already talk about Vector</p>
+            <div class="marquee-inner">
+              <div class="marquee-track">
+                <p>
+                  “I used to spend hours chasing updates across Slack, reportings and meetings. Vector is changing
+                  that.”
+                </p>
+                <p>
+                  “In a world where shipping is evolving fast, Vector drastically empowers engineering teams.”
+                </p>
+                <p>
+                  “I used to spend hours chasing updates across Slack, reportings and meetings. Vector is changing
+                  that.”
+                </p>
+                <p>
+                  “In a world where shipping is evolving fast, Vector drastically empowers engineering teams.”
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="cta-card">
+            <h2>
+              <span class="block">Before it slips,</span>
+              <span class="block" style="margin-top: 0.25rem"
+                ><span class="accent">Vector</span> is already on it.</span
+              >
+            </h2>
+            <p class="sub mt-7 sm:mt-8 max-w-2xl">
+              Sounds exciting ?
+              <span style="font-weight: 700; color: var(--ink)">Try Vector now.</span>
+            </p>
+            <ol>
+              <li>
+                <span class="cta-num">1</span>
+                Connect Vector
+              </li>
+              <li>
+                <span class="cta-num">2</span>
+                Vector understands how your teams executes
+              </li>
+              <li>
+                <span class="cta-num">3</span>
+                Vector is ready to work.
+              </li>
+            </ol>
+            <div class="cta-actions">
+              <a
+                class="btn-light"
+                href="https://calendar.app.google/1kwPDrjBZxVVaBAL6"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Book demo</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 Vector</p>
+    </footer>
+
+    <script src="./assets/main.js" defer></script>
   </body>
 </html>
