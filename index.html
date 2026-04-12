@@ -38,7 +38,7 @@
               <span>Vector handles execution</span> behind the scenes,
               <span>so you don’t have to.</span>
             </p>
-            <a class="btn-pill btn-pill--hero" href="#meet-vector-agent">Meet Vector</a>
+            <a class="btn-pill btn-pill--hero" href="#meet-vector">Meet Vector</a>
           </div>
         </div>
         <div class="hero-product">
@@ -233,89 +233,27 @@
         </div>
       </section>
 
-      <section class="section" id="meet-vector-agent">
-        <div class="section-inner">
-          <header class="text-center">
-            <h2>Meet <span class="accent">Vector</span></h2>
-            <p class="sub mx-auto mt-7 max-w-2xl">
-              <span style="font-weight: 700; color: var(--ink)">No more dashboards.</span>
-              Vector is your new AI teammate who runs execution for you.
-            </p>
-          </header>
-          <div class="meet-orbit meet-orbit--organic" aria-label="Vector capabilities around your workflow">
-            <div class="meet-orbit__stage">
-              <svg class="meet-orbit__rays" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                <defs>
-                  <marker
-                    id="meet-orbit-arrow"
-                    viewBox="0 0 10 10"
-                    refX="9"
-                    refY="5"
-                    markerWidth="4.5"
-                    markerHeight="4.5"
-                    orient="auto"
-                  >
-                    <path d="M0 0 L10 5 L0 10 Z" fill="rgba(82, 82, 91, 0.72)" />
-                  </marker>
-                </defs>
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="2" y2="4" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="10" y2="33" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="2" y2="61" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="50" y2="97" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="98" y2="5" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="89" y2="35" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="98" y2="54" marker-end="url(#meet-orbit-arrow)" />
-                <line class="meet-orbit__ray" x1="50" y1="50" x2="96" y2="96" marker-end="url(#meet-orbit-arrow)" />
-              </svg>
-              <div class="meet-orbit__center">
-                <div class="portrait-wrap">
-                  <div class="portrait-glow" aria-hidden="true"></div>
-                  <img src="./assets/vector-hq.png" alt="Vector, your AI teammate for execution" />
-                  <p class="portrait-caption portrait-caption--brand">Vector</p>
-                  <p class="portrait-caption portrait-caption--muted">Your execution teammate</p>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l1 meet-bubble-shell--depth-far" style="--i: 1">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Run dailies from real signals</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l2 meet-bubble-shell--depth-near" style="--i: 2">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary">Escalate with full context</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l3 meet-bubble-shell--depth-mid" style="--i: 3">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary">Surface hidden dependencies</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--l4 meet-bubble-shell--depth-mid meet-bubble-shell--under" style="--i: 4">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Resolve thread conflicts early</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r1 meet-bubble-shell--depth-near" style="--i: 5">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary">Unify Slack, Git, and PM signals</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r2 meet-bubble-shell--depth-mid" style="--i: 6">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary">Detect delivery drift early</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r3 meet-bubble-shell--depth-far" style="--i: 7">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Judge risk from context, not color</div>
-                </div>
-              </div>
-              <div class="meet-bubble-shell meet-bubble-shell--organic meet-bubble-shell--r4 meet-bubble-shell--depth-far" style="--i: 8">
-                <div class="meet-bubble-inner">
-                  <div class="meet-bubble meet-bubble--secondary meet-bubble--compact">Answer product questions from real signals</div>
-                </div>
-              </div>
+      <section class="section" id="meet-vector" aria-labelledby="meet-vector-heading">
+        <div class="container">
+          <h2 id="meet-vector-heading">Meet <span class="accent">Vector</span></h2>
+          <p class="sub meet-vector__sub">
+            No more dashboards.<br />
+            Vector is your new AI teammate who runs execution for you.
+          </p>
+
+          <div class="avatar-block">
+            <img src="./assets/vector-hq.png" width="160" height="160" alt="Vector avatar" />
+            <div class="identity">
+              <div class="name">Vector</div>
+              <div class="role">Your execution teammate</div>
             </div>
+          </div>
+
+          <div class="capabilities">
+            <div class="chip">Runs follow-ups automatically</div>
+            <div class="chip">Identifies issues before they become a problem</div>
+            <div class="chip">Assigns reviewers instantly</div>
+            <div class="chip">Aligns priorities across teams</div>
           </div>
         </div>
       </section>
@@ -323,7 +261,7 @@
       <section class="section" id="stack">
         <div class="section-inner">
           <header class="text-center">
-            <h2>Vector understands what’s actually happening</h2>
+            <h2>Vector understands what’s happening</h2>
             <p class="sub mx-auto mt-7 max-w-2xl">And fixes it before you have to</p>
           </header>
           <div class="sys-viz">
