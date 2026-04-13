@@ -1,34 +1,6 @@
 (function () {
   "use strict";
 
-  function initTimelineSection() {
-    var section = document.getElementById("timeline-section");
-    if (!section) return;
-    function reveal() {
-      section.classList.add("is-in-view");
-    }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      reveal();
-      return;
-    }
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) {
-              reveal();
-              io.disconnect();
-            }
-          });
-        },
-        { threshold: 0.12, rootMargin: "0px 0px -6% 0px" }
-      );
-      io.observe(section);
-    } else {
-      reveal();
-    }
-  }
-
   function initChat() {
     var thread = document.querySelector(".wrap.hero .chat-thread");
     if (!thread) return;
@@ -159,7 +131,6 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     initChat();
-    initTimelineSection();
     initEmpowers();
   });
 })();
