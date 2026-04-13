@@ -30,7 +30,7 @@
   }
 
   function initChat() {
-    var thread = document.querySelector(".chat-thread");
+    var thread = document.querySelector(".wrap.hero .chat-thread");
     if (!thread) return;
     var steps = thread.querySelectorAll("[data-seq]");
     var between = [420, 580, 560, 1350, 920];
