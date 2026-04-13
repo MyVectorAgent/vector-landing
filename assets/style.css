@@ -8,6 +8,9 @@
   /* Slightly larger default reading size for landing sections */
   --section-title: clamp(1.875rem, 3.6vw + 1rem, 3.15rem);
   --section-body: clamp(1.125rem, 1.1vw + 1rem, 1.375rem);
+  /* Timeline list + column labels: slightly under body prose */
+  --timeline-list-size: clamp(0.9375rem, 0.85vw + 0.82rem, 1.0625rem);
+  --timeline-list-size-lg: clamp(1rem, 0.75vw + 0.88rem, 1.125rem);
 }
 
 *,
@@ -154,12 +157,12 @@ h2 {
 
 /* Hero — lead block + [ subhead | CTA ] row, product band below */
 .wrap.hero {
-  padding: 2rem 0 3.25rem;
+  padding: 2rem 0 2.25rem;
   max-width: 100%;
 }
 @media (min-width: 640px) {
   .wrap.hero {
-    padding: 2.5rem 0 4rem;
+    padding: 2.5rem 0 2.75rem;
   }
 }
 .hero-shell {
@@ -555,7 +558,8 @@ h2 {
   justify-self: start;
 }
 .timeline-compare-title {
-  font-size: clamp(1.0625rem, 0.45vw + 0.95rem, 1.3125rem);
+  font-family: var(--font);
+  font-size: var(--timeline-list-size);
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -563,8 +567,14 @@ h2 {
   text-align: center;
   align-self: stretch;
   width: 100%;
-  line-height: 1.2;
+  line-height: 1.45;
   min-height: 1.2em;
+  -webkit-font-smoothing: antialiased;
+}
+@media (min-width: 1024px) {
+  .timeline-compare-title {
+    font-size: var(--timeline-list-size-lg);
+  }
 }
 .timeline-compare-title--before {
   color: var(--muted);
@@ -660,21 +670,24 @@ h2 {
 }
 .timeline-label {
   display: block;
-  font-size: clamp(0.96875rem, 0.35vw + 0.9rem, 1.0625rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-family: var(--font);
+  font-size: var(--timeline-list-size);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
   padding-bottom: 0.1rem;
+  -webkit-font-smoothing: antialiased;
 }
-@media (min-width: 640px) {
+@media (min-width: 1024px) {
   .timeline-label {
-    font-size: 1.0625rem;
+    font-size: var(--timeline-list-size-lg);
   }
 }
 .timeline--before .timeline-label {
-  color: #52525b;
+  color: var(--muted);
 }
 .timeline--after .timeline-label {
-  color: var(--ink);
+  color: var(--muted);
   opacity: 1;
 }
 /* Enter animations (staggered) */
@@ -767,6 +780,28 @@ h2 {
 }
 
 /* Meet Vector — teammate intro (centered, no diagram UI) */
+/* Tighter top: sits right after hero; default .section top padding is too large here */
+#meet-vector.section {
+  padding-top: 1.75rem;
+  /* Tight to prose block below; timeline section has its own top spacing */
+  padding-bottom: 1.25rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 640px) {
+  #meet-vector.section {
+    padding-top: 2rem;
+    padding-bottom: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  #meet-vector.section {
+    padding-top: 2.25rem;
+    padding-bottom: 1.75rem;
+  }
+}
 #meet-vector .container {
   max-width: 45rem;
   margin: 0 auto;
@@ -813,51 +848,42 @@ h2 {
   font-weight: 500;
   color: var(--muted);
 }
-#meet-vector .capabilities {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px 16px;
-  margin-top: 2.75rem;
+
+/* Text-only bridge between Meet Vector and timeline */
+.section-prose {
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
 }
 @media (min-width: 640px) {
-  #meet-vector .capabilities {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px 16px;
-    align-items: stretch;
+  .section-prose {
+    padding-top: 1.25rem;
+    padding-bottom: 3rem;
   }
 }
-#meet-vector .chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.625rem 1rem;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.04);
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.4;
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  transition: background 0.15s ease;
-}
-@media (min-width: 640px) {
-  #meet-vector .chip {
-    font-size: 1rem;
+@media (min-width: 1024px) {
+  .section-prose {
+    padding-top: 1.5rem;
+    padding-bottom: 3.5rem;
   }
 }
-#meet-vector .chip::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 999px;
-  background: var(--accent);
-  flex-shrink: 0;
+.section-prose .section-inner {
+  max-width: min(50rem, 92vw);
+  margin-left: auto;
+  margin-right: auto;
 }
-#meet-vector .chip:hover {
-  background: rgba(0, 0, 0, 0.06);
+.section-prose p.sub {
+  margin: 0 0 1.5rem;
+  text-align: center;
+  text-wrap: pretty;
+  font-style: normal;
+  font-weight: 400;
+  font-family: var(--font);
+}
+.section-prose p.sub:last-child {
+  margin-bottom: 0;
 }
 
 /* Execution system visualization (#stack) — static product UI */
