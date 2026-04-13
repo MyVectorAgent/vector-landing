@@ -151,8 +151,30 @@
     selectFeature("visibility");
   }
 
+  function initProblemBanner() {
+    var el = document.querySelector(".problem-banner");
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      el.classList.add("is-inview");
+      return;
+    }
+    var obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-inview");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -6% 0px", threshold: 0.1 }
+    );
+    obs.observe(el);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initChat();
     initEmpowers();
+    initProblemBanner();
   });
 })();
