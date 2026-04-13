@@ -397,30 +397,73 @@
         <div class="section-inner">
           <header class="text-center">
             <h2>Why <span class="accent">Vector</span>?</h2>
-            <p class="sub mx-auto mt-7 max-w-2xl">Onboarding takes only five minutes.</p>
+            <p class="sub mx-auto mt-7 max-w-2xl">
+              <span class="block">Onboarding takes only five minutes.</span>
+              <span class="block">And you get...</span>
+            </p>
           </header>
-          <div id="empowers-grid" class="empowers-grid">
-            <button type="button" class="empower-card" data-feature="brief">
-              <h3>Daily execution brief</h3>
-              <p>See what matters, in 30 secs</p>
-            </button>
-            <button type="button" class="empower-card" data-feature="drift">
-              <h3>Execution drift prevention</h3>
-              <p>Fix issues before they become blockers</p>
-            </button>
-            <button type="button" class="empower-card" data-feature="slack">
-              <h3>In-channel teammate</h3>
-              <p>Vector follows up for you</p>
-            </button>
-            <button type="button" class="empower-card" data-feature="escalation">
-              <h3>Smart escalation</h3>
-              <p>You’re only pulled in when it matters</p>
-            </button>
-          </div>
-          <div id="empowers-expanded" class="empowers-expanded">
-            <div class="empower-detail">
-              <div id="empower-detail-content"></div>
-              <div id="empower-compact-row" class="empower-compact-grid"></div>
+          <div class="empowers-split">
+            <div
+              class="empowers-nav"
+              role="tablist"
+              aria-label="Vector capabilities"
+            >
+              <button
+                type="button"
+                class="empower-nav-item is-selected"
+                role="tab"
+                id="empower-tab-visibility"
+                aria-selected="true"
+                aria-controls="empower-panel"
+                data-feature="visibility"
+              >
+                <span class="empower-nav-title">Execution visibility</span>
+                <span class="empower-nav-sub">Know what matters, instantly</span>
+              </button>
+              <button
+                type="button"
+                class="empower-nav-item"
+                role="tab"
+                id="empower-tab-drift"
+                aria-selected="false"
+                aria-controls="empower-panel"
+                data-feature="drift"
+              >
+                <span class="empower-nav-title">Drift detection</span>
+                <span class="empower-nav-sub">Catch issues before they slow you down</span>
+              </button>
+              <button
+                type="button"
+                class="empower-nav-item"
+                role="tab"
+                id="empower-tab-handling"
+                aria-selected="false"
+                aria-controls="empower-panel"
+                data-feature="handling"
+              >
+                <span class="empower-nav-title">Execution handling</span>
+                <span class="empower-nav-sub">Vector moves work forward for you</span>
+              </button>
+              <button
+                type="button"
+                class="empower-nav-item"
+                role="tab"
+                id="empower-tab-escalation"
+                aria-selected="false"
+                aria-controls="empower-panel"
+                data-feature="escalation"
+              >
+                <span class="empower-nav-title">Smart escalation</span>
+                <span class="empower-nav-sub">Only involve you when a decision is needed</span>
+              </button>
+            </div>
+            <div
+              class="empowers-panel-wrap"
+              role="tabpanel"
+              id="empower-panel"
+              aria-labelledby="empower-tab-visibility"
+            >
+              <div id="empower-detail-content" class="empower-detail"></div>
             </div>
           </div>
         </div>
@@ -435,22 +478,22 @@
                 ><span class="accent">Vector</span> is already on it.</span
               >
             </h2>
-            <p class="sub mt-7 sm:mt-8 max-w-2xl">
+            <p class="sub mt-7 sm:mt-8 max-w-2xl mx-auto">
               Sounds exciting ?
               <span style="font-weight: 700; color: var(--ink)">Try Vector now.</span>
             </p>
-            <ol>
+            <ol class="cta-steps">
               <li>
                 <span class="cta-num">1</span>
-                Connect Vector
+                <span class="cta-step-copy">Connect Vector</span>
               </li>
               <li>
                 <span class="cta-num">2</span>
-                Vector understands how your teams executes
+                <span class="cta-step-copy">Vector understands how your teams executes</span>
               </li>
               <li>
                 <span class="cta-num">3</span>
-                Vector is ready to work.
+                <span class="cta-step-copy">Vector is ready to work.</span>
               </li>
             </ol>
             <div class="cta-actions">

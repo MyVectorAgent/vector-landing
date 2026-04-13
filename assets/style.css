@@ -156,7 +156,7 @@ h2 {
   text-align: center;
 }
 
-/* Hero — lead block, subhead, then CTA row, product band below */
+/* Hero - lead block, subhead, then CTA row, product band below */
 .wrap.hero {
   padding: 2rem 0 2.25rem;
   max-width: 100%;
@@ -519,7 +519,7 @@ h2 {
   }
 }
 
-/* Timeline — tighter top spacing below hero */
+/* Timeline - tighter top spacing below hero */
 .section.section-timeline {
   padding-top: 2.5rem;
   padding-bottom: 4rem;
@@ -703,7 +703,7 @@ h2 {
   opacity: 1;
 }
 
-/* Meet Vector — teammate intro (centered, no diagram UI) */
+/* Meet Vector - teammate intro (centered, no diagram UI) */
 /* Tighter top: sits right after hero; default .section top padding is too large here */
 #meet-vector.section {
   padding-top: 1.75rem;
@@ -937,21 +937,28 @@ h2 {
   }
 }
 
-/* Empowers */
-.empowers-grid {
+/* Empowers - tabbed split: nav left, detail right */
+.empowers-split {
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 3rem;
   max-width: 64rem;
   margin-left: auto;
   margin-right: auto;
+  align-items: start;
 }
-@media (min-width: 640px) {
-  .empowers-grid {
-    grid-template-columns: 1fr 1fr;
+@media (min-width: 768px) {
+  .empowers-split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    gap: 2rem;
   }
 }
-.empower-card {
+.empowers-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.empower-nav-item {
   display: block;
   width: 100%;
   text-align: left;
@@ -959,77 +966,72 @@ h2 {
   border-radius: 1rem;
   border: 1px solid rgba(228, 228, 231, 0.85);
   background: #fff;
-  padding: 1.25rem;
-  box-shadow: 0 14px 40px -34px rgba(15, 23, 42, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 1rem 1.15rem;
+  box-shadow: 0 8px 28px -28px rgba(15, 23, 42, 0.35);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
   font: inherit;
   color: inherit;
 }
-.empower-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 46px -32px rgba(15, 23, 42, 0.35);
+.empower-nav-item:hover {
+  border-color: rgba(228, 228, 231, 1);
+  box-shadow: 0 12px 36px -30px rgba(15, 23, 42, 0.3);
 }
-.empower-card h3 {
-  margin: 0;
+.empower-nav-item.is-selected {
+  border-color: rgba(232, 120, 190, 0.45);
+  background: rgba(253, 242, 248, 0.55);
+  box-shadow: 0 14px 40px -32px rgba(232, 120, 190, 0.35);
+}
+.empower-nav-title {
+  display: block;
   font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1.35;
 }
 @media (min-width: 640px) {
-  .empower-card h3 {
+  .empower-nav-title {
     font-size: 1.125rem;
   }
 }
-.empower-card p {
-  margin: 0.5rem 0 0;
-  font-size: 0.9375rem;
+.empower-nav-sub {
+  display: block;
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
   color: var(--muted);
+  line-height: 1.45;
 }
 @media (min-width: 640px) {
-  .empower-card p {
-    font-size: 1rem;
+  .empower-nav-sub {
+    font-size: 0.9375rem;
   }
 }
-.empowers-expanded {
-  display: none;
-  margin-top: 3rem;
-  max-width: 64rem;
-  margin-left: auto;
-  margin-right: auto;
-}
-.empowers-expanded.is-open {
-  display: block;
-}
-.empowers-grid.is-hidden {
-  display: none;
+.empowers-panel-wrap {
+  min-width: 0;
 }
 .empower-detail {
-  position: relative;
   border-radius: 1rem;
   border: 1px solid rgba(24, 24, 27, 0.25);
   background: #fff;
   padding: 1.5rem;
   box-shadow: 0 18px 46px -32px rgba(15, 23, 42, 0.35);
 }
-.empower-detail .close {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  background: none;
+/* Daily brief: real chat-card UI (same as hero / #stack); avoid double frame */
+.empower-detail:has(> .chat-card) {
+  padding: 0;
   border: none;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #71717a;
-  cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  background: transparent;
+  box-shadow: none;
 }
-.empower-detail .close:hover {
-  color: var(--ink);
+.empower-detail > .chat-card {
+  max-width: 100%;
+  margin: 0;
+}
+.empower-detail .chat-block {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 .empower-detail h3 {
   margin: 0;
-  padding-right: 4rem;
   font-size: 1.125rem;
   font-weight: 700;
 }
@@ -1084,75 +1086,49 @@ h2 {
 .slack-dots span:nth-child(3) {
   animation-delay: 0.3s;
 }
-.empower-compact-grid {
-  display: grid;
-  gap: 0.5rem;
-  margin-top: 0.75rem;
-}
-@media (min-width: 640px) {
-  .empower-compact-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-.empower-compact {
-  text-align: left;
-  cursor: pointer;
-  border-radius: 1rem;
-  border: 1px solid rgba(228, 228, 231, 0.75);
-  background: rgba(255, 255, 255, 0.8);
-  padding: 1rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-  font: inherit;
-  color: inherit;
-  opacity: 0.48;
-  transition: opacity 0.2s;
-}
-.empower-compact:hover {
-  opacity: 0.75;
-}
-.empower-compact h4 {
-  margin: 0;
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-.empower-compact p {
-  margin: 0.25rem 0 0;
-  font-size: 0.8125rem;
-  color: var(--muted);
-}
-
 .cta-card {
   border-radius: 1.5rem;
   border: 1px solid rgba(228, 228, 231, 0.7);
   background: #fff;
   padding: 3.5rem 1.5rem;
   box-shadow: 0 20px 50px -36px rgba(15, 23, 42, 0.08);
+  text-align: center;
 }
 @media (min-width: 640px) {
   .cta-card {
     padding: 4rem 3rem;
   }
 }
-.cta-card ol {
+.cta-card ol.cta-steps {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
-  max-width: 28rem;
-}
-.cta-card li {
+  margin: 2rem auto 0;
+  width: 100%;
+  max-width: min(32rem, 100%);
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  flex-direction: column;
+  gap: 0.875rem;
+  text-align: left;
+}
+.cta-card ol.cta-steps li {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  align-items: start;
+  margin: 0;
   font-size: 1.0625rem;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 @media (min-width: 640px) {
-  .cta-card li {
-    font-size: 1.1875rem;
+  .cta-card ol.cta-steps li {
+    font-size: 1.125rem;
   }
 }
+.cta-card .cta-step-copy {
+  display: block;
+  padding-top: 0.125rem;
+}
 .cta-num {
-  flex-shrink: 0;
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 9999px;
@@ -1163,6 +1139,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 .cta-actions {
   display: flex;

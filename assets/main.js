@@ -17,68 +17,107 @@
     }
   }
 
-  var FEATURES = {
-    brief: {
-      title: "Daily execution brief",
-      sub: "See what matters, in 30 secs",
-      body:
-        "Vector scans Slack, GitHub, Linear, and your team’s activity, and surfaces only what needs your attention. No dashboards. No digging through threads.",
-      proof: function () {
-        return (
-          '<div class="proof"><ul style="margin:0;padding-left:1.1rem"><li>2 PRs waiting · 1 at risk · reviewer already nudged</li></ul></div>'
-        );
-      },
-    },
-    drift: {
-      title: "Execution drift prevention",
-      sub: "Fix issues before they become blockers",
-      body:
-        "Vector catches early signals: missing owners, stalled PRs, unclear threads. It takes action before things slip. No more surprises at standup.",
-      proof: function () {
-        return '<div class="proof"><p style="margin:0;font-weight:600">Auth PR stalled → reviewer pinged → back on track</p></div>';
-      },
-    },
-    slack: {
-      title: "In-channel teammate",
-      sub: "Vector follows up for you",
-      body:
-        "It reaches out, asks for updates, nudges reviewers, and keeps work moving in Slack. No more chasing people.",
-      proof: function () {
-        return (
-          '<div class="proof proof--slack">Hey, quick check: still on track for today?' +
-          '<span class="slack-dots" aria-hidden="true"><span></span><span></span><span></span></span></div>'
-        );
-      },
-    },
-    escalation: {
-      title: "Smart escalation",
-      sub: "You’re only pulled in when it matters",
-      body:
-        "Vector handles day-to-day execution and only escalates when a real decision is needed. No noise. No unnecessary pings.",
-      proof: function () {
-        return '<div class="proof proof--esc">Checkout launch at risk: need your call on scope</div>';
-      },
-    },
-  };
-
   function escapeHtml(s) {
     var d = document.createElement("div");
     d.textContent = s;
     return d.innerHTML;
   }
 
+  /** Shared Slack-style thread for empowers panel (matches hero / #stack chat UI). */
+  function empowerVectorThread(ariaLabel, time, bubbles) {
+    var bubbleHtml = "";
+    for (var i = 0; i < bubbles.length; i++) {
+      bubbleHtml += '<div class="bubble">' + bubbles[i] + "</div>";
+    }
+    return (
+      '<div class="chat-card" role="region" aria-label="' +
+      escapeHtml(ariaLabel) +
+      '">' +
+      '<div class="chat-shell">' +
+      '<div class="chat-thread">' +
+      '<div class="chat-block chat-row">' +
+      '<img class="avatar" src="./assets/vector-hero-avatar.png" alt="" />' +
+      '<div class="flex-1">' +
+      '<div class="bubble-meta">' +
+      '<span style="font-size: 14px; font-weight: 600">Vector</span>' +
+      '<span style="font-size: 13px; color: #a1a1aa">' +
+      escapeHtml(time) +
+      "</span>" +
+      "</div>" +
+      bubbleHtml +
+      "</div>" +
+      "</div>" +
+      "</div>" +
+      "</div>" +
+      "</div>"
+    );
+  }
+
+  var FEATURES = {
+    visibility: {
+      title: "Execution visibility",
+      sub: "Know what matters, instantly",
+      renderPanel: function () {
+        return empowerVectorThread("Execution visibility example in Slack", "8:02 AM", [
+          "Morning Alex, quick overview ✨",
+          "<strong>Checkout:</strong><br />• PR waiting on review since yesterday<br />• Auth migration is unblocked and moving",
+          "I nudged for a reviewer and aligned ownership.",
+          "Everything else is on track.",
+        ]);
+      },
+    },
+    drift: {
+      title: "Drift detection",
+      sub: "Catch issues before they slow you down",
+      renderPanel: function () {
+        return empowerVectorThread("Drift detection example in Slack", "3:14 PM", [
+          "Heads up: small drift detected.",
+          "The auth service PR has been inactive for ~1 day and no reviewer is clearly assigned.",
+          "I'm resolving it now before it blocks anything.",
+        ]);
+      },
+    },
+    handling: {
+      title: "Execution handling",
+      sub: "Vector moves work forward for you",
+      renderPanel: function () {
+        return empowerVectorThread("Execution handling example in Slack", "11:08 AM", [
+          "I handled this in <strong>#eng-shipping</strong> so you don't have to.",
+          "→ Assigned Sam as reviewer<br />→ Clarified ownership in Linear<br />→ Scheduled a follow-up if no activity",
+          "I'll keep things moving and update you if needed.",
+        ]);
+      },
+    },
+    escalation: {
+      title: "Smart escalation",
+      sub: "Only involve you when a decision is needed",
+      renderPanel: function () {
+        return empowerVectorThread("Smart escalation example in Slack", "4:47 PM", [
+          "One item needs your input.",
+          "Checkout launch scope and timeline don't align.",
+          "Options:<br />• Move the release date<br />• Reduce scope for this cycle",
+          "Tell me what you prefer, and I'll handle the rest.",
+        ]);
+      },
+    },
+  };
+
   function initEmpowers() {
-    var grid = document.getElementById("empowers-grid");
-    var expanded = document.getElementById("empowers-expanded");
+    var nav = document.querySelector(".empowers-nav");
     var detail = document.getElementById("empower-detail-content");
-    var compact = document.getElementById("empower-compact-row");
-    if (!grid || !expanded || !detail || !compact) return;
+    var panel = document.getElementById("empower-panel");
+    if (!nav || !detail || !panel) return;
+
+    var tabs = nav.querySelectorAll('.empower-nav-item[data-feature]');
 
     function renderDetail(id) {
       var f = FEATURES[id];
       if (!f) return;
+      if (typeof f.renderPanel === "function") {
+        detail.innerHTML = f.renderPanel();
+        return;
+      }
       detail.innerHTML =
-        '<button type="button" class="close" id="empower-close">Overview</button>' +
         "<h3>" +
         escapeHtml(f.title) +
         "</h3>" +
@@ -89,44 +128,27 @@
         escapeHtml(f.body) +
         "</p>" +
         f.proof();
-      document.getElementById("empower-close").addEventListener("click", closeDetail);
     }
 
-    function buildCompact(currentId) {
-      compact.innerHTML = "";
-      Object.keys(FEATURES).forEach(function (key) {
-        if (key === currentId) return;
-        var f = FEATURES[key];
-        var btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "empower-compact";
-        btn.innerHTML = "<h4>" + escapeHtml(f.title) + "</h4><p>" + escapeHtml(f.sub) + "</p>";
-        btn.addEventListener("click", function () {
-          openDetail(key);
-        });
-        compact.appendChild(btn);
+    function selectFeature(id) {
+      var f = FEATURES[id];
+      if (!f) return;
+      tabs.forEach(function (btn) {
+        var on = btn.dataset.feature === id;
+        btn.classList.toggle("is-selected", on);
+        btn.setAttribute("aria-selected", on ? "true" : "false");
       });
-    }
-
-    function openDetail(id) {
-      grid.classList.add("is-hidden");
-      expanded.classList.add("is-open");
+      panel.setAttribute("aria-labelledby", "empower-tab-" + id);
       renderDetail(id);
-      buildCompact(id);
     }
 
-    function closeDetail() {
-      expanded.classList.remove("is-open");
-      grid.classList.remove("is-hidden");
-      detail.innerHTML = "";
-      compact.innerHTML = "";
-    }
-
-    grid.querySelectorAll(".empower-card").forEach(function (btn) {
+    tabs.forEach(function (btn) {
       btn.addEventListener("click", function () {
-        openDetail(btn.dataset.feature);
+        selectFeature(btn.dataset.feature);
       });
     });
+
+    selectFeature("visibility");
   }
 
   document.addEventListener("DOMContentLoaded", function () {
