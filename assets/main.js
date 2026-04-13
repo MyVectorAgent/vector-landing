@@ -56,7 +56,7 @@
   var FEATURES = {
     visibility: {
       title: "Execution visibility",
-      sub: "Know what matters, instantly",
+      sub: "Instantly know what matters",
       renderPanel: function () {
         return empowerVectorThread("Execution visibility example in Slack", "8:02 AM", [
           "Morning Alex, quick overview ✨",
@@ -90,7 +90,7 @@
     },
     escalation: {
       title: "Smart escalation",
-      sub: "Only involve you when a decision is needed",
+      sub: "Vector only involves you when a decision is needed",
       renderPanel: function () {
         return empowerVectorThread("Smart escalation example in Slack", "4:47 PM", [
           "One item needs your input.",
