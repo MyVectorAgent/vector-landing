@@ -172,9 +172,38 @@
     obs.observe(el);
   }
 
+  function initMeetVectorSnippet() {
+    var snippet = document.querySelector("#meet-vector .meet-vector-snippet");
+    if (!snippet) return;
+
+    snippet.classList.add("is-animating");
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      snippet.classList.add("is-inview");
+      return;
+    }
+
+    var obs = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            setTimeout(function () {
+              entry.target.classList.add("is-inview");
+            }, 160);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    );
+
+    obs.observe(snippet);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initChat();
     initEmpowers();
     initProblemBanner();
+    initMeetVectorSnippet();
   });
 })();

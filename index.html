@@ -23,34 +23,34 @@
     <main>
       <div class="wrap hero">
         <div class="hero-shell">
-          <div class="hero-lead">
-            <div class="logo-row">
-              <img src="./assets/vector-logo.png" alt="" width="120" height="36" />
-              <span class="logo-wordmark">Vector</span>
+          <div class="hero-copy">
+            <div class="hero-lead">
+              <div class="logo-row">
+                <img src="./assets/vector-logo.png" alt="" width="120" height="36" />
+                <span class="logo-wordmark">Vector</span>
+              </div>
+              <h1>
+                <span class="block">Chase results,</span>
+                <span class="block">Not <span class="accent">updates.</span></span>
+              </h1>
             </div>
-            <h1>
-              <span class="block">Chase results,</span>
-              <span class="block">Not <span class="accent">updates.</span></span>
-            </h1>
-          </div>
-          <div class="hero-sub-row">
-            <p class="sub hero-sub">
-              <strong>Vector handles execution behind the scenes, so you don’t have to.</strong>
-            </p>
-            <div class="hero-cta-row">
-              <a class="btn-pill btn-pill--hero" href="#meet-vector">Meet Vector</a>
-              <a
-                class="btn-light"
-                href="https://calendar.app.google/1kwPDrjBZxVVaBAL6"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Book a demo</a
-              >
+            <div class="hero-sub-row">
+              <p class="sub hero-sub">
+                <strong>Vector handles execution behind the scenes, so you don’t have to.</strong>
+              </p>
+              <div class="hero-cta-row">
+                <a class="btn-pill btn-pill--hero" href="#meet-vector">Meet Vector</a>
+                <a
+                  class="btn-light"
+                  href="https://calendar.app.google/1kwPDrjBZxVVaBAL6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Book a demo</a
+                >
+              </div>
             </div>
           </div>
-        </div>
-        <div class="hero-product">
-          <div class="hero-product__frame">
+          <div class="hero-product">
             <div class="hero-product__chat-wrap">
               <div class="chat-card">
                 <div class="chat-shell">
@@ -128,43 +128,57 @@
       <section class="problem-banner" aria-label="Execution challenge">
         <div class="problem-banner__grid" aria-hidden="true"></div>
         <div class="problem-banner__inner">
-          <p class="problem-banner__text">Execution is fragmented across tools, conversations, decisions.</p>
-          <p class="problem-banner__text">Engineering and product managers waste their time figuring out what’s going on.</p>
+          <div class="problem-banner__block problem-banner__block--lead">
+            <p class="problem-banner__text">A PR is open. A ticket is ‘in progress’. Something is blocked.</p>
+          </div>
+          <div class="problem-banner__block problem-banner__block--focus">
+            <p class="problem-banner__text">You’re not taking action.</p>
+            <p class="problem-banner__text">You’re figuring things out.</p>
+          </div>
         </div>
       </section>
 
       <section class="section" id="meet-vector" aria-labelledby="meet-vector-heading">
         <div class="container">
-          <h2 id="meet-vector-heading">Meet <span class="accent">Vector</span></h2>
-          <p class="sub meet-vector__sub">
-            <strong>No more dashboards.</strong><br />
-            Vector is your AI teammate who runs execution with you.
-          </p>
-
-          <div class="avatar-block">
-            <img src="./assets/vector-hq.png" width="160" height="160" alt="Vector avatar" />
-            <div class="identity">
-              <div class="name">Vector</div>
-              <div class="role">Your execution teammate</div>
+          <div class="meet-vector-layout">
+            <div class="meet-vector-copy">
+              <h2 id="meet-vector-heading">Meet <span class="accent">Vector</span></h2>
+              <p class="sub meet-vector__sub">Your always-on AI teammate who <strong>runs execution with you.</strong></p>
+              <p class="sub meet-vector__support">
+                Vector shows up where work happens. Vector connects early signals, identifies risks, and makes sure
+                blockers and delays never surface.
+              </p>
+              <div class="cta-actions meet-vector__cta">
+                <a
+                  class="btn-light"
+                  href="https://calendar.app.google/1kwPDrjBZxVVaBAL6"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >See Vector in action</a
+                >
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-prose" aria-label="Supporting copy">
-        <div class="section-inner">
-          <p class="sub">
-            <strong>Vector shows up where work happens.</strong><br />
-            Vector connects early signals, identifies risks, and makes sure blockers and delays never surface.
-          </p>
-          <div class="cta-actions section-prose__cta">
-            <a
-              class="btn-light"
-              href="https://calendar.app.google/1kwPDrjBZxVVaBAL6"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Learn more</a
-            >
+            <aside class="meet-vector-snippet" aria-label="Vector proactive message snippet">
+              <div class="meet-vector-snippet__body">
+                <div class="meet-vector-snippet__meta">
+                  <img
+                    class="meet-vector-snippet__avatar"
+                    src="./assets/vector-hq.png"
+                    width="48"
+                    height="48"
+                    alt="Vector avatar"
+                  />
+                  <span>Vector</span>
+                  <span aria-hidden="true">·</span>
+                  <span>now</span>
+                </div>
+                <div class="meet-vector-snippet__bubble">
+                  Hey Sam !<br />
+                  Saw checkout is still waiting on validation 🙂<br />
+                  Want me to try to unblock things so we can ship today?
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>
@@ -276,6 +290,79 @@
                   <span class="action__text">Update shared with the manager</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="core-features">
+        <div class="section-inner">
+          <header class="text-center">
+            <h2>Why <span class="accent">Vector</span>?</h2>
+            <p class="sub mx-auto mt-7 max-w-2xl">Onboarding only takes five minutes.</p>
+          </header>
+          <div class="empowers-split">
+            <div
+              class="empowers-nav"
+              role="tablist"
+              aria-label="Vector capabilities"
+            >
+              <button
+                type="button"
+                class="empower-nav-item is-selected"
+                role="tab"
+                id="empower-tab-visibility"
+                aria-selected="true"
+                aria-controls="empower-panel"
+                data-feature="visibility"
+              >
+                <span class="empower-nav-title">Execution visibility</span>
+                <span class="empower-nav-sub">Instantly know what matters</span>
+              </button>
+              <button
+                type="button"
+                class="empower-nav-item"
+                role="tab"
+                id="empower-tab-drift"
+                aria-selected="false"
+                aria-controls="empower-panel"
+                data-feature="drift"
+              >
+                <span class="empower-nav-title">Drift detection</span>
+                <span class="empower-nav-sub">Catch issues before they slow you down</span>
+              </button>
+              <button
+                type="button"
+                class="empower-nav-item"
+                role="tab"
+                id="empower-tab-handling"
+                aria-selected="false"
+                aria-controls="empower-panel"
+                data-feature="handling"
+              >
+                <span class="empower-nav-title">Execution handling</span>
+                <span class="empower-nav-sub">Vector moves work forward for you</span>
+              </button>
+              <button
+                type="button"
+                class="empower-nav-item"
+                role="tab"
+                id="empower-tab-escalation"
+                aria-selected="false"
+                aria-controls="empower-panel"
+                data-feature="escalation"
+              >
+                <span class="empower-nav-title">Smart escalation</span>
+                <span class="empower-nav-sub">Vector only involves you when a decision is needed</span>
+              </button>
+            </div>
+            <div
+              class="empowers-panel-wrap"
+              role="tabpanel"
+              id="empower-panel"
+              aria-labelledby="empower-tab-visibility"
+            >
+              <div id="empower-detail-content" class="empower-detail"></div>
             </div>
           </div>
         </div>
@@ -397,74 +484,36 @@
         </div>
       </section>
 
-      <section class="section" id="core-features">
+      <section class="section section-impact" id="impact" aria-labelledby="impact-heading">
         <div class="section-inner">
-          <header class="text-center">
-            <h2>Why <span class="accent">Vector</span>?</h2>
-            <p class="sub mx-auto mt-7 max-w-2xl">Onboarding only takes five minutes.</p>
+          <header class="impact-head text-center">
+            <h2 id="impact-heading">Execution is <span class="accent">handled</span>.</h2>
           </header>
-          <div class="empowers-split">
-            <div
-              class="empowers-nav"
-              role="tablist"
-              aria-label="Vector capabilities"
-            >
-              <button
-                type="button"
-                class="empower-nav-item is-selected"
-                role="tab"
-                id="empower-tab-visibility"
-                aria-selected="true"
-                aria-controls="empower-panel"
-                data-feature="visibility"
-              >
-                <span class="empower-nav-title">Execution visibility</span>
-                <span class="empower-nav-sub">Instantly know what matters</span>
-              </button>
-              <button
-                type="button"
-                class="empower-nav-item"
-                role="tab"
-                id="empower-tab-drift"
-                aria-selected="false"
-                aria-controls="empower-panel"
-                data-feature="drift"
-              >
-                <span class="empower-nav-title">Drift detection</span>
-                <span class="empower-nav-sub">Catch issues before they slow you down</span>
-              </button>
-              <button
-                type="button"
-                class="empower-nav-item"
-                role="tab"
-                id="empower-tab-handling"
-                aria-selected="false"
-                aria-controls="empower-panel"
-                data-feature="handling"
-              >
-                <span class="empower-nav-title">Execution handling</span>
-                <span class="empower-nav-sub">Vector moves work forward for you</span>
-              </button>
-              <button
-                type="button"
-                class="empower-nav-item"
-                role="tab"
-                id="empower-tab-escalation"
-                aria-selected="false"
-                aria-controls="empower-panel"
-                data-feature="escalation"
-              >
-                <span class="empower-nav-title">Smart escalation</span>
-                <span class="empower-nav-sub">Vector only involves you when a decision is needed</span>
-              </button>
+          <div class="impact-grid" aria-label="Manager impact metrics">
+            <div class="impact-row impact-row--top">
+              <article class="impact-item">
+                <p class="impact-value impact-value--accent">4h/day</p>
+                <p class="impact-copy">saved on reporting, follow-ups, and standups</p>
+              </article>
+              <article class="impact-item">
+                <p class="impact-value">Faster</p>
+                <p class="impact-copy">shipping, by catching drift earlier</p>
+              </article>
+              <article class="impact-item">
+                <p class="impact-value impact-value--accent">24/7</p>
+                <p class="impact-copy">coverage across Slack, GitHub, and Linear</p>
+              </article>
             </div>
-            <div
-              class="empowers-panel-wrap"
-              role="tabpanel"
-              id="empower-panel"
-              aria-labelledby="empower-tab-visibility"
-            >
-              <div id="empower-detail-content" class="empower-detail"></div>
+            <div class="impact-row-divider" aria-hidden="true"></div>
+            <div class="impact-row impact-row--bottom">
+              <article class="impact-item">
+                <p class="impact-value">More leverage</p>
+                <p class="impact-copy">without adding more meetings or oversight</p>
+              </article>
+              <article class="impact-item">
+                <p class="impact-value">Fewer surprises</p>
+                <p class="impact-copy">from blockers, delays, and dependencies</p>
+              </article>
             </div>
           </div>
         </div>
